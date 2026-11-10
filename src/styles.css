@@ -74,13 +74,13 @@
 
 :root {
   --radius: 0.1875rem;
-  --background: oklch(0.982 0.006 80);
+  --background: oklch(0.979 0.006 85);
   --foreground: oklch(0.205 0 0);
   --card: oklch(0.982 0.006 80);
   --card-foreground: oklch(0.205 0 0);
   --popover: oklch(0.982 0.006 80);
   --popover-foreground: oklch(0.205 0 0);
-  --primary: oklch(0.797 0.163 79);
+  --primary: oklch(0.798 0.162 82);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.205 0 0);
   --secondary-foreground: oklch(0.982 0.006 80);
@@ -114,7 +114,7 @@
     border-color: var(--color-border);
   }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
   body {
     font-family: var(--font-sans);
     font-size: 17.5px;
@@ -123,4 +123,34 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+html[dir="rtl"] body { font-family: "Vazirmatn", sans-serif; }
+a, button, input, textarea { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--foreground); outline-offset: 4px; }
+input, textarea { width: 100%; min-width: 0; border: 1px solid var(--border); background: var(--background); border-radius: 3px; padding: 10px 12px; }
+textarea { resize: vertical; }
+.hero { height: calc(100svh - 8rem); min-height: 510px; max-height: 960px; }
+.hero-shade { background: color-mix(in oklab, var(--overlay) 68%, transparent); mask-image: linear-gradient(transparent 20%, var(--overlay) 88%); }
+.hero-photo { animation: hero-zoom 7s ease-out both; }
+.project-photo img { transition: transform 400ms ease; }
+.project-photo:hover img { transform: scale(1.03); }
+.reveal-ready { opacity: 0; transform: translateY(16px); transition: opacity 650ms ease, transform 650ms ease; }
+.revealed { opacity: 1; transform: none; }
+.mobile-menu { animation: soft-fade 180ms ease-out; }
+.photo-dialog { position: fixed; inset: 0; width: 100%; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 60px 20px 20px; border: 0; background: var(--ink); color: var(--ink-foreground); animation: soft-fade 180ms ease; }
+.photo-dialog::backdrop { background: var(--ink); }
+.photo-dialog[open] { display: flex; align-items: center; justify-content: center; }
+.lightbox-content { max-width: 1100px; width: 100%; }
+.lightbox-content img { display: block; width: auto; height: auto; max-width: 100%; max-height: calc(100dvh - 160px); margin: auto; object-fit: contain; }
+.lightbox-close { position: absolute; top: 16px; inset-inline-end: 20px; }
+.photo-dialog button:hover { background: var(--ink-border); color: var(--ink-foreground); }
+.photo-dialog button:focus-visible { outline-color: var(--ink-foreground); }
+@keyframes hero-zoom { from { transform: scale(1); } to { transform: scale(1.025); } }
+@keyframes soft-fade { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 639px) { .hero { min-height: 550px; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal-ready { opacity: 1; transform: none; }
 }
