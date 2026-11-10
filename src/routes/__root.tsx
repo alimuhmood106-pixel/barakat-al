@@ -94,8 +94,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Vazirmatn:wght@400;500;600&display=swap" },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
     ],
+    // Sets language and direction before the first paint, so Kurdish and Arabic visitors never see the page flip.
+    scripts: [{ children: 'try{var l=localStorage.getItem("barakat-language");if(l==="ar"||l==="ku"){var d=document.documentElement;d.lang=l==="ku"?"ckb":"ar";d.dir="rtl"}}catch(e){}' }],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -105,7 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>

@@ -130,10 +130,15 @@ a, button, input, textarea { -webkit-tap-highlight-color: transparent; }
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--foreground); outline-offset: 4px; }
 input, textarea { width: 100%; min-width: 0; border: 1px solid var(--border); background: var(--background); border-radius: 3px; padding: 10px 12px; }
 textarea { resize: vertical; }
-.hero { height: calc(100svh - 8rem); min-height: 510px; max-height: 960px; }
+.hero { height: calc(100svh - 6rem); min-height: 510px; max-height: 960px; }
+input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--destructive); }
+.skip-link { position: absolute; inset-inline-start: 8px; top: -60px; z-index: 60; background: var(--ink); color: var(--ink-foreground); padding: 10px 16px; border-radius: 3px; }
+.skip-link:focus { top: 8px; }
+.fade-img { opacity: 0; transition: opacity 500ms ease, transform 400ms ease; }
+.fade-img.is-loaded { opacity: 1; }
+@media (scripting: none) { .fade-img { opacity: 1; } }
 .hero-shade { background: color-mix(in oklab, var(--overlay) 68%, transparent); mask-image: linear-gradient(transparent 20%, var(--overlay) 88%); }
 .hero-photo { animation: hero-zoom 7s ease-out both; }
-.project-photo img { transition: transform 400ms ease; }
 .project-photo:hover img { transform: scale(1.03); }
 .reveal-ready { opacity: 0; transform: translateY(16px); transition: opacity 650ms ease, transform 650ms ease; }
 .revealed { opacity: 1; transform: none; }
@@ -153,4 +158,5 @@ textarea { resize: vertical; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal-ready { opacity: 1; transform: none; }
+  .fade-img { opacity: 1; }
 }

@@ -1,24 +1,23 @@
-# Project Migration Studio
+# Barakat Al Jinan Company website
 
-/skill:migrate-external-project Source: code archive. Migrate the attached project into Lovable.
+One-page site for Barakat Al Jinan Company (Erbil, since 2009). English, Kurdish (Sorani) and Arabic.
 
-This project was built with [Lovable](https://lovable.dev).
+## Where things are
 
-## Build with Lovable
+- `src/components/site/content.ts`: all copy, phone, links and the project list. Edit here to change text.
+- `public/photos/`: the real photos (`.webp`) and `logo.webp`. They are plain files, so they work on any host. To swap a photo, replace the file with the same name or change its entry in `content.ts` (keep width and height correct).
+- `public/og.jpg`, `favicon.*`, `apple-touch-icon.png`: share image and icons.
+- `src/routes/index.tsx`: the page.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/945b193f-55a4-4620-a7b8-d36133964816).
+## Contact form
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+The site has no mail server. After the form is filled in and checked, the visitor presses "Send on WhatsApp", which opens WhatsApp with the message already written.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
+npm run build
+npm test
 ```

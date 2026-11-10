@@ -30,5 +30,5 @@ use the editor.
 <!-- LOVABLE:END -->
 
 - Keep the company copy, project metadata and contact links in one browser-safe content module so translations and images stay consistent.
-- Store optimized real photos as Lovable asset pointers, with explicit intrinsic dimensions, so deployments do not depend on another site's asset paths.
-- Keep this site's contact form frontend-only and explicitly confirm that no message was sent; the user requested no delivery service.
+- Keep photos as real files in `public/photos` and reference them by plain `/photos/...` paths, with explicit width and height in `content.ts`. Do not use `*.asset.json` pointers: their `/__l5e/` URLs only work inside Lovable and break on Cloudflare.
+- Keep this site's contact form frontend-only: it never claims a message was sent; it hands the written message to WhatsApp for the visitor to send.
