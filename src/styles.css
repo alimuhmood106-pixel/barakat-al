@@ -131,7 +131,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 input, textarea { width: 100%; min-width: 0; border: 1px solid var(--border); background: var(--background); border-radius: 3px; padding: 10px 12px; }
 textarea { resize: vertical; }
 .hero { height: calc(100svh - 8rem); min-height: 510px; max-height: 960px; }
-.hero-shade { background: color-mix(in oklab, var(--overlay) 28%, transparent); mask-image: linear-gradient(transparent 15%, var(--overlay) 85%); }
+.hero-shade { background: color-mix(in oklab, var(--overlay) 68%, transparent); mask-image: linear-gradient(transparent 20%, var(--overlay) 88%); }
 .hero-photo { animation: hero-zoom 7s ease-out both; }
 .project-photo img { transition: transform 400ms ease; }
 .project-photo:hover img { transform: scale(1.03); }
