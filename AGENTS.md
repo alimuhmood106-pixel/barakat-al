@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Keep the company copy, project metadata and contact links in one browser-safe content module so translations and images stay consistent.
+- Store optimized real photos as Lovable asset pointers, with explicit intrinsic dimensions, so deployments do not depend on another site's asset paths.
+- Keep this site's contact form frontend-only and explicitly confirm that no message was sent; the user requested no delivery service.
